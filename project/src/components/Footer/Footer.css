@@ -1,0 +1,154 @@
+.footer {
+  padding: 32px 25px 24px;
+}
+
+.footer h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2b3a42;
+  margin-bottom: 16px;
+}
+
+.footer section {
+  margin-bottom: 0;
+}
+
+.footer .nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .nav-item {
+  margin-bottom: 10px;
+}
+
+.footer .nav-link {
+  display: inline-block;
+}
+
+.footer .nav-link {
+  color: #727e86;
+  text-decoration: none;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.footer .nav-link:hover,
+.footer .nav-link:focus {
+  color: #ff0000;
+}
+
+.footer-pay {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px auto 16px;
+}
+
+.footer-pay-systems {
+  width: 46px;
+  height: 28px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-image: url('/img/footer-sprite.png');
+}
+
+.footer-pay-systems:not(:first-child) {
+  margin-left: 5px;
+}
+
+.footer-pay-systems-paypal {
+  background-position: -2px -6px;
+}
+
+.footer-pay-systems-master-card {
+  background-position: -54px -8px;
+}
+
+.footer-pay-systems-visa {
+  background-position: -104px -8px;
+}
+
+.footer-pay-systems-yandex {
+  background-position: -154px -8px;
+}
+
+.footer-pay-systems-webmoney {
+  background-position: -2px -46px;
+}
+
+.footer-pay-systems-qiwi {
+  background-position: -52px -46px;
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-contacts-phone,
+.footer-contacts-email,
+.footer-contacts-working-hours {
+  display: block;
+  color: #2b3a42;
+  text-decoration: none;
+}
+
+.footer-contacts-phone {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.footer-contacts-working-hours,
+.footer-contacts-email {
+  font-size: 0.95rem;
+  color: #727e86;
+}
+
+.footer-contacts-working-hours {
+  margin-bottom: 4px;
+}
+
+.footer-contacts-email {
+  margin-top: 0;
+}
+
+.footer-social-links {
+  margin-top: 4px;
+}
+
+.footer-social-link {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-image: url('/img/footer-sprite.png');
+}
+
+.footer-social-link-twitter {
+  background-position: -107px -42px;
+}
+
+.footer-social-link-vk {
+  background-position: -157px -42px;
+}
+
+.footer-social-link:hover {
+  cursor: pointer;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #727e86;
+  line-height: 1.5;
+}

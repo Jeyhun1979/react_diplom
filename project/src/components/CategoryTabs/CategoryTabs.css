@@ -1,0 +1,28 @@
+.catalog-categories {
+  font-size: 1.3rem;
+  margin-bottom: 2em;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.catalog-categories .nav-item {
+  margin: 0 10px;
+}
+
+.catalog-categories .nav-link {
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #727e86;
+}
+
+.catalog-categories .nav-link.active {
+  color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .catalog-categories {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
