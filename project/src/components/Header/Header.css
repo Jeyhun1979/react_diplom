@@ -29,6 +29,13 @@
   margin-right: auto;
 }
 
+.header-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .header-controls-pics {
   display: flex;
   align-items: center;
@@ -42,7 +49,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  background-image: url('/img/header-controls-sprite.png');
+  background-image: url("/img/header-controls-sprite.png");
   background-repeat: no-repeat;
 }
 
@@ -51,13 +58,14 @@
 }
 
 .header-controls-cart {
+  position: relative;
   background-position: 0 0;
 }
 
 .header-controls-cart-full {
   position: absolute;
-  right: -10px;
-  top: -5px;
+  right: -6px;
+  top: -6px;
   display: block;
   height: 21px;
   width: 21px;
@@ -67,33 +75,52 @@
   color: #fff;
   border-radius: 50%;
   background: linear-gradient(90deg, #ff65a5 1.11%, #ff8076 100%);
-  box-shadow: 0px 2px 8px rgba(255, 101, 165, 0.6), inset 0px 1px 1px #ff8076;
+  box-shadow:
+    0px 2px 8px rgba(255, 101, 165, 0.6),
+    inset 0px 1px 1px #ff8076;
 }
 
 .header-controls-search-form {
   position: absolute;
-  right: 65px;
-  top: calc(50% - 19px);
-  width: 233px;
-  height: 38px;
-  padding: 0 20px;
-  background: #fff;
-  box-shadow: 0 0 10px #d4e4e6;
+  top: 50%;
+  right: calc(100% + 8px);
+  transform: translateY(-50%);
+  width: 280px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #ffffff;
   border-radius: 50px;
-  text-align: right;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.12);
+  z-index: 20;
 }
 
 .header-controls-search-form .form-control {
   width: 100%;
-  height: 100%;
-  border: none;
-  outline: none;
+  height: 36px;
+  border: 1px solid #d4e4e6;
+  border-radius: 50px;
+  padding: 0 16px;
   box-shadow: none;
+  outline: none;
   color: #333333;
+}
+
+.header-controls-search-close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: #f5f7f8;
+  color: #727e86;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .invisible {
   opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 1024px) {

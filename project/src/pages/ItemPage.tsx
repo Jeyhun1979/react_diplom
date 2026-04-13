@@ -1,25 +1,25 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '../store/hooks'
-import { addToCart } from '../store/cartSlice'
-import { loadItem } from '../store/shopSlice'
-import Preloader from '../components/Preloader/Preloader'
-import type { Item } from '../types'
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
+import { addToCart } from "../store/cartSlice";
+import { loadItem } from "../store/shopSlice";
+import Preloader from "../components/Preloader/Preloader";
+import type { Item } from "../types";
 
 function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
-  const dispatch = useAppDispatch()
-  const navigate = useNavigate()
-  const [selectedSize, setSelectedSize] = useState('')
-  const [count, setCount] = useState(1)
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [selectedSize, setSelectedSize] = useState("");
+  const [count, setCount] = useState(1);
 
   const availableSizes = useMemo(
-    () => itemDetails.sizes.filter(size => size.available),
+    () => itemDetails.sizes.filter((size) => size.available),
     [itemDetails],
-  )
+  );
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      return
+      return;
     }
 
     dispatch(
@@ -29,20 +29,22 @@ function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
         count,
         price: itemDetails.price,
         title: itemDetails.title,
-        image: itemDetails.images[0] ?? '',
+        image: itemDetails.images[0] ?? "",
         color: itemDetails.color,
         sku: itemDetails.sku,
       }),
-    )
-    navigate('/cart.html')
-  }
+    );
+    navigate("/cart");
+  };
 
   return (
     <section className="catalog-item">
       <h2 className="text-center">{itemDetails.title}</h2>
       <div className="row">
         <div className="col-12 col-lg-5">
-          <img src={itemDetails.images[0]} className="img-fluid" alt={itemDetails.title} />
+          <div className="catalog-item-image">
+            <img src={itemDetails.images[0]} alt={itemDetails.title} />
+          </div>
         </div>
         <div className="col-12 col-lg-7">
           <table className="table table-bordered">
@@ -77,12 +79,12 @@ function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
             <>
               <div className="text-center">
                 <p>
-                  Размеры в наличии:{' '}
-                  {availableSizes.map(size => (
+                  Размеры в наличии:{" "}
+                  {availableSizes.map((size) => (
                     <button
                       type="button"
                       key={size.size}
-                      className={`catalog-item-size${selectedSize === size.size ? ' selected' : ''}`}
+                      className={`catalog-item-size${selectedSize === size.size ? " selected" : ""}`}
                       onClick={() => setSelectedSize(size.size)}
                     >
                       {size.size}
@@ -90,12 +92,12 @@ function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
                   ))}
                 </p>
                 <p>
-                  Количество:{' '}
+                  Количество:{" "}
                   <span className="btn-group btn-group-sm pl-2">
                     <button
                       type="button"
                       className="btn btn-secondary"
-                      onClick={() => setCount(prev => Math.max(1, prev - 1))}
+                      onClick={() => setCount((prev) => Math.max(1, prev - 1))}
                       disabled={count === 1}
                     >
                       -
@@ -106,7 +108,7 @@ function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
                     <button
                       type="button"
                       className="btn btn-secondary"
-                      onClick={() => setCount(prev => Math.min(10, prev + 1))}
+                      onClick={() => setCount((prev) => Math.min(10, prev + 1))}
                       disabled={count === 10}
                     >
                       +
@@ -114,7 +116,11 @@ function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
                   </span>
                 </p>
               </div>
-              <button className="btn btn-danger btn-block btn-lg" onClick={handleAddToCart} disabled={!selectedSize}>
+              <button
+                className="btn btn-danger btn-block btn-lg"
+                onClick={handleAddToCart}
+                disabled={!selectedSize}
+              >
                 В корзину
               </button>
             </>
@@ -122,36 +128,38 @@ function ItemPageContent({ itemDetails }: { itemDetails: Item }) {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default function ItemPage() {
-  const dispatch = useAppDispatch()
-  const { id } = useParams()
-  const { itemDetails, loaders, itemError } = useAppSelector(state => state.shop)
+  const dispatch = useAppDispatch();
+  const { id } = useParams();
+  const { itemDetails, loaders, itemError } = useAppSelector(
+    (state) => state.shop,
+  );
 
   useEffect(() => {
     if (!id) {
-      return
+      return;
     }
-    dispatch(loadItem(Number(id)))
-  }, [dispatch, id])
+    dispatch(loadItem(Number(id)));
+  }, [dispatch, id]);
 
   if (loaders.item) {
     return (
       <section className="catalog-item text-center">
         <Preloader />
       </section>
-    )
+    );
   }
 
   if (itemError) {
-    return <div className="text-center text-danger">{itemError}</div>
+    return <div className="text-center text-danger">{itemError}</div>;
   }
 
   if (!itemDetails) {
-    return null
+    return null;
   }
 
-  return <ItemPageContent key={itemDetails.id} itemDetails={itemDetails} />
+  return <ItemPageContent key={itemDetails.id} itemDetails={itemDetails} />;
 }

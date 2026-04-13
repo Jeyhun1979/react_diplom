@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import './Footer.css'
+import { Link } from "react-router-dom";
+import "./Footer.css";
 
 export default function Footer() {
   return (
@@ -10,17 +10,17 @@ export default function Footer() {
             <h5>Информация</h5>
             <ul className="nav flex-column">
               <li className="nav-item">
-                <Link className="nav-link" to="/about.html">
+                <Link className="nav-link" to="/about">
                   О магазине
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/catalog.html">
+                <Link className="nav-link" to="/catalog">
                   Каталог
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contacts.html">
+                <Link className="nav-link" to="/contacts">
                   Контакты
                 </Link>
               </li>
@@ -41,9 +41,10 @@ export default function Footer() {
           </section>
           <section>
             <div className="footer-copyright">
-              2009-2019 © BosaNoga.ru — модный интернет-магазин обуви и аксессуаров.
-              Все права защищены.
-              <br />Доставка по всей России!
+              2009-2019 © BosaNoga.ru — модный интернет-магазин обуви и
+              аксессуаров. Все права защищены.
+              <br />
+              Доставка по всей России!
             </div>
           </section>
         </div>
@@ -53,8 +54,13 @@ export default function Footer() {
             <a className="footer-contacts-phone" href="tel:+7-495-790-35-03">
               +7 495 79 03 5 03
             </a>
-            <span className="footer-contacts-working-hours">Ежедневно: с 09-00 до 21-00</span>
-            <a className="footer-contacts-email" href="mailto:office@bosanoga.ru">
+            <span className="footer-contacts-working-hours">
+              Ежедневно: с 09-00 до 21-00
+            </span>
+            <a
+              className="footer-contacts-email"
+              href="mailto:office@bosanoga.ru"
+            >
               office@bosanoga.ru
             </a>
             <div className="footer-social-links">
@@ -65,5 +71,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic-ext');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=cyrillic-ext');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&subset=cyrillic-ext");
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #727e86;
   background: #ffffff;
   line-height: 1.5;
@@ -44,27 +44,44 @@ input {
 .col {
   padding: 0 15px;
   width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
 .col-12 {
   width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
 }
 
-.col-4,
-.col-lg-4 {
+.col-4 {
   width: 33.33333%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
 }
 
 .col-5 {
   width: 41.66667%;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
 }
 
 .col-7 {
   width: 58.33333%;
+  flex: 0 0 58.33333%;
+  max-width: 58.33333%;
 }
 
 .col-sm-6 {
   width: 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.col-lg-4 {
+  width: 33.33333%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
 }
 
 @media (max-width: 990px) {
@@ -74,6 +91,8 @@ input {
   .col-sm-6,
   .col-lg-4 {
     width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 
@@ -148,7 +167,10 @@ input {
   font-size: 0.95rem;
   cursor: pointer;
   background: transparent;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .btn-outline-primary {
@@ -280,20 +302,37 @@ input {
   color: #fff;
 }
 
+.catalog-item-image {
+  padding: 20px;
+  border: 1px solid #e5e4e7;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 320px;
+}
+
+.catalog-item-image img {
+  max-width: 100%;
+  max-height: 460px;
+  object-fit: contain;
+}
+
 .catalog-search-form {
   display: block;
   width: 100%;
-  height: 38px;
-  padding: 0 20px;
-  background: #ffffff;
-  box-shadow: 0 0 10px #d4e4e6;
-  border-radius: 50px;
-  margin-bottom: 2em;
+  max-width: 520px;
+  margin: 0 auto 2em;
 }
 
 .catalog-search-form .form-control {
-  border: none;
-  box-shadow: none;
+  width: 100%;
+  height: 46px;
+  border: 1px solid #d4e4e6;
+  border-radius: 50px;
+  padding: 0 20px;
+  box-shadow: 0 0 14px rgba(212, 228, 230, 0.9);
 }
 
 .text-center {
